@@ -19,6 +19,8 @@ public class ClassThree {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void generateBitmap(Context context) {
 
+        // TODO: GENERATE A NICE A4 REPORT WITH ALL 4 IMAGES AND SOME TEXT THAT ARE PRESENT.
+
         for (int i = 0; i < 100; i++) {
             Bitmap p1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.p1);
 
@@ -26,11 +28,11 @@ public class ClassThree {
 
             Bitmap p3 = BitmapFactory.decodeResource(context.getResources(), R.drawable.p3);
 
-            Bitmap p4 = ClassTwo.getBitmap("https://sfl-report-logos.s3.ap-south-1.amazonaws.com/add_on_logo.png");
+            Bitmap p4 = ClassTwo.getBitmap("https://sfl-report-logos.s3.ap-south-1.amazonaws.com/p1.png");
 
             PdfDocument reportWithMhr = new PdfDocument();
 
-            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(1350, 1880, i).create();
+            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(10, 10, i).create();
 
             PdfDocument.Page page = reportWithMhr.startPage(pageInfo);
             Canvas canvas = page.getCanvas();

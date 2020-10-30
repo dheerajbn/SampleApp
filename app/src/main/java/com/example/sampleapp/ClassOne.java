@@ -13,7 +13,7 @@ public class ClassOne {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void uploadDataAndGenerate(Context context) {
 
-        // TODO: UPLOAD SOME RANDOM DATA TO CLOUD DATABASE OF YOUR CHOICE. RUN THAT AND BITMAP GENERATION CODE PARALLEL
+        // TODO: UPLOAD SOME RANDOM DATA TO CLOUD DATABASE OF YOUR CHOICE. RUN THAT AND BITMAP GENERATION CODE IN PARALLEL
 
         ClassThree.generateBitmap(context);
     }
