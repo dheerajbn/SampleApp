@@ -1,7 +1,10 @@
 package com.example.sampleapp;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,8 +14,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TODO: HAVE A BUTTON. ON CLICK OF THE BUTTON A TIMER STARTS AND THAT TIMER IS SHOWN ON THE SCREEN.
-        //TODO: AT THE SAME TIME CALL uploadDataAndGenerate Function of ClassOne.
-        //TODO: ONCE THE REPORT IS GENERATED STOP THE TIMER AND OPEN THAT REPORT.
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void startTimer(View v) {
+
+        //TODO: START A TIMER WITH MILLISECONDS PRECESSION AND DISPLAY IT ON TEXTVIEW.
+
+        ClassThree.generatePdf(this);
+
+        //TODO: ONCE THIS PDF IS GENERATED, STOP TIMER AND OPEN THE PDF.
     }
 }

@@ -17,9 +17,10 @@ import androidx.annotation.RequiresApi;
 public class ClassThree {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static void generateBitmap(Context context) {
+    public static void generatePdf(Context context) {
 
-        // TODO: GENERATE A NICE A4 REPORT WITH ALL 4 IMAGES AND SOME TEXT THAT ARE PRESENT.
+        // TODO: GENERATE A NICE A4 PDF OF 100 PAGES WITH ALL 4 IMAGES AND SOME TEXT THAT ARE PRESENT.
+        // TODO: GOAL IS TO OPTIMIZE THIS FUNCTION SO THAT IN THE MAIN ACTIVITY THE TIMER IS RUNNING CONTINUOUSLY.
 
         for (int i = 0; i < 100; i++) {
             Bitmap p1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.p1);
@@ -30,11 +31,11 @@ public class ClassThree {
 
             Bitmap p4 = ClassTwo.getBitmap("https://sfl-report-logos.s3.ap-south-1.amazonaws.com/p1.png");
 
-            PdfDocument reportWithMhr = new PdfDocument();
+            PdfDocument pdf = new PdfDocument();
 
-            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(10, 10, i).create();
+            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(595, 842, i).create();
 
-            PdfDocument.Page page = reportWithMhr.startPage(pageInfo);
+            PdfDocument.Page page = pdf.startPage(pageInfo);
             Canvas canvas = page.getCanvas();
 
             canvas.save();
@@ -45,19 +46,19 @@ public class ClassThree {
             paint.setColor(Color.BLACK);
             paint.setTextSize(32);
 
-            canvas.drawText("Patient Name : ", 0, 700, paint);
+            canvas.drawText("Name : ", 0, 700, paint);
 
-            canvas.drawText("Patient ID : ", 0, 750, paint);
+            canvas.drawText("ID : ", 0, 750, paint);
 
-            canvas.drawText("Patient Age : " + " yrs", 0, 800, paint);
+            canvas.drawText("Age : " + " yrs", 0, 800, paint);
 
-            canvas.drawText("Test Duration : ", 0, 850, paint);
+            canvas.drawText("DOB : ", 0, 850, paint);
 
-            canvas.drawText("Gestational Age : ", 40, 700, paint);
+            canvas.drawText("FATHER'S NAME : ", 40, 700, paint);
 
-            canvas.drawText("G/P : ", 50, 750, paint);
+            canvas.drawText("HOBBIES : ", 50, 750, paint);
 
-            canvas.drawText("Risk Factors : ", 50, 800, paint);
+            canvas.drawText("Place : ", 50, 800, paint);
 
             canvas.drawText("Date : ", 50, 850, paint);
 
@@ -68,7 +69,7 @@ public class ClassThree {
 
             canvas.restore();
 
-            reportWithMhr.finishPage(page);
+            pdf.finishPage(page);
         }
     }
 }
